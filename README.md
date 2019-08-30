@@ -29,7 +29,10 @@ xxxxxはお好きな名前でお願いします。
 * gradle-5.6.1
 
 ## 使い方
-コンテナにsshで接続することができます。ユーザ名/パスワードは、developer/developerです。  
+コンテナにsshで接続することができます。ポート番号は「2222」に変更しています。  
+ユーザ名/パスワードは、developer/developerです。 
+
+### コンパイルの仕方
 /home/developer/src/demo/  
 の下に入って、
 ```
