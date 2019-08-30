@@ -32,15 +32,15 @@ xxxxxはお好きな名前でお願いします。
 コンテナにsshで接続することができます。ユーザ名/パスワードは、developer/developerです。  
 /home/developer/src/demo/  
 の下に入って、
-'''
+```
 gradle build
-'''
+```
 でコンパイルができます。
 
 ### 実行の仕方
-'''
+```
 gradle bootRun
-'''
+```
 で実行できます。
 
 # License
