@@ -1,5 +1,5 @@
 ## JavaDeveloper
-Javaの開発環境を構築プロジェクトです。  
+Javaの開発環境を構築するプロジェクトです。  
 単純な開発環境ではなく、フレームワークにSpringBoot、ビルドツールにGradleを
 使用します。  
 VSCodeの拡張機能「Remote Development」を使って開発ができるようになります。
