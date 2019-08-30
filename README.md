@@ -5,7 +5,6 @@ Javaの開発環境を構築プロジェクトです。
 
 ## 事前準備  
 Windowsの人は、[Windows 上の Docker エンジン](https://docs.microsoft.com/ja-jp/virtualization/windowscontainers/manage-docker/configure-docker-daemon)を参考にDockerをインストールしてください。  
-
 macやLinuxの人は、ググってください。
 
 コンテナを楽に作れるように、スクリプトを用意しています。(RedHat8向けですが)  
