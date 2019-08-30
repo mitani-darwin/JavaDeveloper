@@ -26,6 +26,12 @@ RUN source '/etc/profile'
 RUN useradd developer
 RUN echo "developer:developer" | chpasswd
 
+## 開発環境ディレクトリ作成
+RUN mkdir -p /home/developer/src
+COPY demo.zip /home/developer/src/
+RUN cd /home/developer/src/; unzip demo.zip; rm demo.zip
+RUN chown -R developer:developer /home/developer/
+
 #ポート22を開ける
 EXPOSE 22
 
