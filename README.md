@@ -1,7 +1,8 @@
 ## JavaDeveloper
 Javaの開発環境を構築プロジェクトです。  
 単純な開発環境ではなく、フレームワークにSpringBoot、ビルドツールにGradleを
-使用します。
+使用します。  
+VSCodeの拡張機能「Remote Development」を使って開発ができるようになります。
 
 ## 事前準備  
 Windowsの人は、[Windows 上の Docker エンジン](https://docs.microsoft.com/ja-jp/virtualization/windowscontainers/manage-docker/configure-docker-daemon)を参考にDockerをインストールしてください。  
