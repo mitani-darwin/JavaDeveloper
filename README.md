@@ -45,7 +45,7 @@ gradle bootRun
 ```
 で実行できます。
 
-なお、build.gradleは(Spring Initializr)[https://start.spring.io/]を使って作成しました。
+なお、build.gradleは[Spring Initializr](https://start.spring.io/)を使って作成しました。
 
 # License
 [MIT license](https://en.wikipedia.org/wiki/MIT_License).
