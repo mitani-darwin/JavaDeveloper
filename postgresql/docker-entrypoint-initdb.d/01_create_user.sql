@@ -1,0 +1,1 @@
+CREATE ROLE sample WITH LOGIN PASSWORD 'sample';
