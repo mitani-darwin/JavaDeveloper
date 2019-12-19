@@ -8,7 +8,6 @@ RUN echo "now building..."
 
 ## 必要なプログラム類のインストール
 RUN yum -y install openssh-server initscripts
-RUN yum -y install postgresql
 RUN yum -y install unzip
 RUN yum -y install git
 RUN cd /tmp; curl -L -O https://services.gradle.org/distributions/gradle-5.6.1-bin.zip; unzip gradle-5.6.1-bin.zip; mv gradle-5.6.1 gradle; mv gradle /usr/local/
@@ -34,7 +33,7 @@ RUN cd /home/developer/src/; git clone https://github.com/mitani-darwin/DemoWebA
 RUN chown -R developer:developer /home/developer/
 
 # ポート22を開ける
-EXPOSE [22, 8080]
+EXPOSE 22 8080
 
 # ENTRYPOINT : docker runするときに実行される
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]
