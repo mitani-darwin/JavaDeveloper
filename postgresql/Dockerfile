@@ -6,4 +6,4 @@ ENV LANG ja_JP.UTF-8
 ADD ./docker-entrypoint-initdb.d/*.sql /docker-entrypoint-initdb.d/
 
 # ポート5432を開ける
-EXPOSE [5432]
+EXPOSE 5432

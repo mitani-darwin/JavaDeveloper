@@ -16,5 +16,26 @@ if [ 0 -eq $? ]; then
 
   podman ps 
   podman image ls | grep -e postgresql -e javadevelopment
+else
+  result=`which docker`
+  if [ 0 -eq $? ]; then
+    container=`docker ps -a | grep -e postgresql -e javadevelopment | awk '{print $1}'`
+    for container_id in $container
+    do 
+      docker stop $container_id
+      docker rm $container_id
+    done
+
+    image=`docker image ls | grep -e postgresql -e javadevelopment | awk '{print $3}'`
+    for image_id in $image
+    do
+      docker rmi $image_id;
+    done
+
+    network=`docker network ls | grep app_network | awk '{print $1}'`
+    docker network rm $network
+  else
+    echo 'dockerをインストールしてください'
+  fi
 fi
 
