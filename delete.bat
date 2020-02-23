@@ -1,0 +1,1 @@
+powershell -ExecutionPolicy RemoteSigned .\delete.ps1

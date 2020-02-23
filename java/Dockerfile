@@ -10,10 +10,10 @@ RUN echo "now building..."
 RUN yum -y install openssh-server initscripts
 RUN yum -y install unzip
 RUN yum -y install git
-RUN cd /tmp; curl -L -O https://services.gradle.org/distributions/gradle-5.6.1-bin.zip; unzip gradle-5.6.1-bin.zip; mv gradle-5.6.1 gradle; mv gradle /usr/local/
+RUN cd /tmp; curl -L -O https://services.gradle.org/distributions/gradle-6.2-bin.zip; unzip gradle-6.2-bin.zip; mv gradle-6.2 gradle; mv gradle /usr/local/
 
 ## JDKのダウンロード
-RUN cd /tmp; curl -L -O https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.tar.gz; tar xzvf openjdk-11+28_linux-x64_bin.tar.gz; mv jdk-11 /usr/local/;
+RUN cd /tmp; curl -L -O https://download.java.net/java/GA/jdk13.0.2/d4173c853231432d94f001e99d882ca7/8/GPL/openjdk-13.0.2_linux-x64_bin.tar.gz; tar xzvf openjdk-13.0.2_linux-x64_bin.tar.gz; mv jdk-13.0.2 /usr/local/;
 
 ## SSHの設定
 RUN ssh-keygen -A

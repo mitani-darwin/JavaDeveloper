@@ -8,9 +8,12 @@ VSCodeの拡張機能「Remote Development」を使って開発ができるよ�
 Windowsの人は、[Windows 上の Docker エンジン](https://docs.microsoft.com/ja-jp/virtualization/windowscontainers/manage-docker/configure-docker-daemon)を参考にDockerをインストールしてください。  
 macやLinuxの人は、ググってください。
 
-コンテナを楽に作れるように、スクリプトを用意しています。(RedHat8向けですが)  
-WindowsやMac、LinuxでDockerコマンドを使っている人は、以下を参考にbuild.shを修正してください。  
-Windowsを使っている人は、拡張子をbatに変更してください。
+コンテナを楽に作れるように、スクリプトを用意しています。  
+Windowsで以下のエラーが出ている場合、
+```
+no matching manifest for windows/amd64
+```
+は、[docker runしたら「no matching manifest for windows/amd64 10.0.18362 in the manifest list entries.」と出る](https://qiita.com/yuta_vamdemic/items/cf3eb8182a63a303c4f7)の通りに設定変更してください。
 
 build.sh(修正前)
 ```
@@ -24,13 +27,13 @@ docker image build  -f Dockerfile -t xxxxx
 xxxxxはお好きな名前でお願いします。
 
 ## インストールされるもの
-* OpenJDK11
+* OpenJDK13
 * git2系
-* gradle-5.6.1
+* gradle-6.2
 
 ## 使い方
 コンテナにsshで接続することができます。ポート番号は「2222」に変更しています。  
-ユーザ名/パスワードは、developer/developerです。 
+ユーザ名/パスワードは、developer/developerです。
 
 ### コンパイルの仕方
 /home/developer/src/demo/  
