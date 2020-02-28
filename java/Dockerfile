@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:latest
 
 # 作成したユーザの情報
 LABEL maintainer="mitani <mitani@daisuke2.com>"
@@ -13,12 +13,15 @@ RUN yum -y install git
 RUN cd /tmp; curl -L -O https://services.gradle.org/distributions/gradle-6.2-bin.zip; unzip gradle-6.2-bin.zip; mv gradle-6.2 gradle; mv gradle /usr/local/
 
 ## JDKのダウンロード
-RUN cd /tmp; curl -L -O https://download.java.net/java/GA/jdk13.0.2/d4173c853231432d94f001e99d882ca7/8/GPL/openjdk-13.0.2_linux-x64_bin.tar.gz; tar xzvf openjdk-13.0.2_linux-x64_bin.tar.gz; mv jdk-13.0.2 /usr/local/;
+RUN cd /tmp; curl -L -O https://download.java.net/openjdk/jdk11/ri/openjdk-11+28_linux-x64_bin.tar.gz; tar xzvf openjdk-11+28_linux-x64_bin.tar.gz; mv jdk-11 /usr/local/;
 
 ## SSHの設定
-RUN ssh-keygen -A
-RUN sed -i -e "s/#PasswordAuthentication yes/PasswordAuthentication yes/g" /etc/ssh/sshd_config
+RUN mkdir /var/run/sshd
+RUN ssh-keygen -t rsa -N "" -f /etc/ssh/ssh_host_rsa_key
+#RUN sed -i -e "s/#PasswordAuthentication yes/PasswordAuthentication yes/" /etc/ssh/sshd_config
 RUN sed -i -e "s/#PermitRootLogin yes/PermitRootLogin yes/g" /etc/ssh/sshd_config
+# SSH ログインの設定修正。これを行わないとログインした後に処理実行できない。
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 ## 環境設定
 RUN echo 'export JAVA_HOME=/usr/local/jdk-11' >> /etc/profile
