@@ -15,19 +15,8 @@ no matching manifest for windows/amd64
 ```
 は、[docker runしたら「no matching manifest for windows/amd64 10.0.18362 in the manifest list entries.」と出る](https://qiita.com/yuta_vamdemic/items/cf3eb8182a63a303c4f7)の通りに設定変更してください。
 
-build.sh(修正前)
-```
-podman image build  -f Dockerfile -t xxxxx
-```
-build.sh(修正後)
-```
-docker image build  -f Dockerfile -t xxxxx
-```
-
-xxxxxはお好きな名前でお願いします。
-
 ## インストールされるもの
-* OpenJDK13
+* OpenJDK11
 * git2系
 * gradle-6.2
 
