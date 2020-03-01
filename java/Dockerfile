@@ -7,9 +7,9 @@ LABEL maintainer="mitani <mitani@daisuke2.com>"
 RUN echo "now building..."
 
 ## 必要なプログラム類のインストール
-RUN yum -y install openssh-server initscripts
-RUN yum -y install unzip
-RUN yum -y install git
+RUN yum -y install openssh-server initscripts \
+                    unzip \
+                    git
 RUN cd /tmp; curl -L -O https://services.gradle.org/distributions/gradle-6.2-bin.zip; unzip gradle-6.2-bin.zip; mv gradle-6.2 gradle; mv gradle /usr/local/
 
 ## JDKのダウンロード
