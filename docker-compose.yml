@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    build: java/.
+    ports:
+      - "2222:22"
+      - "8081:80"
+  db:
+    build: postgresql/.
+    ports:
+      - "5432:5432"
