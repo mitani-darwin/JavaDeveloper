@@ -18,7 +18,8 @@ RUN cd /tmp; curl -L -O https://download.java.net/openjdk/jdk11/ri/openjdk-11+28
 ## SSHの設定
 RUN mkdir /var/run/sshd && \
     ssh-keygen -t rsa -N "" -f /etc/ssh/ssh_host_rsa_key && \
-    sed -i -e "s/#PermitRootLogin yes/PermitRootLogin yes/g" /etc/ssh/sshd_config
+    sed -i -e "s/#PermitRootLogin yes/PermitRootLogin yes/g" /etc/ssh/sshd_config && \
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 ## 環境設定
 RUN echo 'export JAVA_HOME=/usr/local/jdk-11' >> /etc/profile && \

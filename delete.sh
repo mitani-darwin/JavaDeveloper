@@ -3,7 +3,6 @@
 PATH=$PATH:/usr/local/bin;
 result=`which podman-compose`
 if [ 0 -eq $? ]; then
-  `podman pod stop java_developer`
   `podman pod rm -f java_developer`
   container=`podman image ls | grep -e java_developer | awk '{print $1}'`
   for container_id in $container

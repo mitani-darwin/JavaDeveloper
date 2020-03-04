@@ -1,5 +1,6 @@
 #!/bin/sh
 
+PATH=$PATH:/usr/local/bin;
 result=`which podman-compose`
 if [ 0 -eq $? ]; then
   podman-compose up -d
