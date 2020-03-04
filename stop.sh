@@ -12,12 +12,8 @@ if [ 0 -eq $? ]; then
 else
   result=`which docker`
   if [ 0 -eq $? ]; then
-    container=`docker ps | grep -e postgresql -e javadevelopment | awk '{print $1}'`
-    for container_id in $container
-    do 
-      docker stop $container_id
-    done
-    docker ps -a
+    docker-compose stop
+    docker-compose ps
   else
     echo 'dockerをインストールしてください'
   fi

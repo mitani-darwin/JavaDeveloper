@@ -18,9 +18,7 @@ RUN cd /tmp; curl -L -O https://download.java.net/openjdk/jdk11/ri/openjdk-11+28
 ## SSHの設定
 RUN mkdir /var/run/sshd && \
     ssh-keygen -t rsa -N "" -f /etc/ssh/ssh_host_rsa_key && \
-    sed -i -e "s/#PermitRootLogin yes/PermitRootLogin yes/g" /etc/ssh/sshd_config && \
-# SSH ログインの設定修正。これを行わないとログインした後に処理実行できない。
-    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+    sed -i -e "s/#PermitRootLogin yes/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 ## 環境設定
 RUN echo 'export JAVA_HOME=/usr/local/jdk-11' >> /etc/profile && \
@@ -28,6 +26,8 @@ RUN echo 'export JAVA_HOME=/usr/local/jdk-11' >> /etc/profile && \
     source '/etc/profile' && \
     useradd developer && \
     echo "developer:developer" | chpasswd
+
+RUN rm -rf /run/nologin
 
 ## 開発環境ディレクトリ作成
 RUN mkdir -p /home/developer/src && \
