@@ -1,25 +1,12 @@
 #!/bin/sh
 
-result=`which podman`
+result=`which podman-compose`
 if [ 0 -eq $? ]; then
-  container=`podman ps -a | grep -e postgresql -e javadevelopment | awk '{print $1}'`
-  for container_id in $container
-  do 
-    podman start $container_id
-  done
-
-  podman ps
-
+  podman-compose up -d
 else
-  result=`which docker`
+  result=`which docker-compose`
   if [ 0 -eq $? ]; then
-    container=`docker ps -a | grep -e postgresql -e javadevelopment | awk '{print $1}'`
-    for container_id in $container
-    do 
-      docker start $container_id
-    done
-
-    docker ps
+    docker-compose up -d
   else
     echo 'dockerをインストールしてください'
   fi

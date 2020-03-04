@@ -1,1 +1,0 @@
-powershell -ExecutionPolicy RemoteSigned .\run.ps1
