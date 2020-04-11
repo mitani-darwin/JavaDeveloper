@@ -1,0 +1,1 @@
+powershell -ExecutionPolicy RemoteSigned .\stop.ps1
