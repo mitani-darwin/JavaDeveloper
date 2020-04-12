@@ -16,12 +16,6 @@ no matching manifest for windows/amd64
 は、[docker runしたら「no matching manifest for windows/amd64 10.0.18362 in the manifest list entries.」と出る](https://qiita.com/yuta_vamdemic/items/cf3eb8182a63a303c4f7)の通りに設定変更してください。
 その後に、タスクトレイのDockerアイコンを右クリックし、「Switch to Linux containers...」をクリックしてください。
 
-|  TH  |  TH  |
-| ---- | ---- |
-|  TD  |  TD  |
-|  TD  |  TD  |
-
-
 ## インストールされるもの
 * OpenJDK11(centos8版)
 * gradle-6.2
