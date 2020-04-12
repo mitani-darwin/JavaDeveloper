@@ -21,11 +21,11 @@ no matching manifest for windows/amd64
 * gradle-6.2
 
 ## 使い方
-用途|Mac & Linux | Windows
+|用途|Mac & Linux | Windows|
 -------------------------
-コンテナの作成＆コンテナの起動|start.sh|start.bat
-コンテナのストップ|stop.sh|stop.bat
-コンテナの削除|delete.sh|delete.bat
+|コンテナの作成＆コンテナの起動|start.sh|start.bat|
+|コンテナのストップ|stop.sh|stop.bat|
+|コンテナの削除|delete.sh|delete.bat|
 
 コンテナにsshで接続することができます。ポート番号は「2222」に変更しています。  
 ユーザ名/パスワードは、developer/developerです。
