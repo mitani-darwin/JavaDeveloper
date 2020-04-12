@@ -22,7 +22,7 @@ no matching manifest for windows/amd64
 
 ## 使い方
 |用途|Mac & Linux | Windows|
--------------------------
+|-----------------|
 |コンテナの作成＆コンテナの起動|start.sh|start.bat|
 |コンテナのストップ|stop.sh|stop.bat|
 |コンテナの削除|delete.sh|delete.bat|
