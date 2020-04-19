@@ -3,14 +3,20 @@ FROM centos:latest
 # 作成したユーザの情報
 LABEL maintainer="mitani <mitani@daisuke2.com>"
 
-# RUN: docker buildするときに実行される
+# RUN: docker buildするときに実行される `
 RUN echo "now building..."
 
 ## 必要なプログラム類のインストール
 RUN yum -y install openssh-server initscripts \
                     unzip \
                     git \
-                    java-11-openjdk && \
+                    java-11-openjdk \
+                    glibc \
+                    libgcc \
+                    libstdc++ \
+                    python \
+                    ca-certificates \
+                    tar \
     cd /tmp; curl -L -O https://services.gradle.org/distributions/gradle-6.2-bin.zip; unzip gradle-6.2-bin.zip; mv gradle-6.2 gradle; mv gradle /usr/local/
 
 ## SSHの設定
