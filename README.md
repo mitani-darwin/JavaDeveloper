@@ -17,8 +17,8 @@ no matching manifest for windows/amd64
 その後に、タスクトレイのDockerアイコンを右クリックし、「Switch to Linux containers...」をクリックしてください。
 
 ## インストールされるもの
-* OpenJDK11(centos8版)
-* gradle-6.2
+* OpenJDK14
+* gradle-6.3
 
 ## 使い方
 | 用途| Mac & Linux | Windows |

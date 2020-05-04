@@ -10,14 +10,13 @@ RUN echo "now building..."
 RUN yum -y install openssh-server initscripts \
                     unzip \
                     git \
-                    java-11-openjdk \
                     glibc \
                     libgcc \
                     libstdc++ \
-                    python \
                     ca-certificates \
-                    tar \
-    cd /tmp; curl -L -O https://services.gradle.org/distributions/gradle-6.2-bin.zip; unzip gradle-6.2-bin.zip; mv gradle-6.2 gradle; mv gradle /usr/local/
+                    tar
+RUN cd /tmp; curl -L -O https://services.gradle.org/distributions/gradle-6.3-bin.zip; unzip gradle-6.3-bin.zip; mv gradle-6.3 gradle; mv gradle /usr/local/
+RUN cd /tmp; curl -L -O https://download.java.net/java/GA/jdk14/076bab302c7b4508975440c56f6cc26a/36/GPL/openjdk-14_linux-x64_bin.tar.gz; tar xzvf openjdk-14_linux-x64_bin.tar.gz; mv jdk-14 /usr/local/
 
 ## SSHの設定
 RUN mkdir /var/run/sshd && \
@@ -26,7 +25,8 @@ RUN mkdir /var/run/sshd && \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 ## 環境設定
-RUN echo 'export PATH=$PATH:/usr/local/gradle/bin:$JAVA_HOME/bin' >> /etc/profile && \
+RUN echo 'export JAVA_HOME=/usr/local/jdk-14' >> /etc/profile && \
+    echo 'export PATH=$PATH:/usr/local/gradle/bin:$JAVA_HOME/bin' >> /etc/profile && \
     source '/etc/profile' && \
     useradd developer && \
     echo "developer:developer" | chpasswd
